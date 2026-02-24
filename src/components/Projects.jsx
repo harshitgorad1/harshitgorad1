@@ -8,7 +8,7 @@ const PROJECTS = [
         tags: ['React', 'Python', 'TensorFlow', 'Flask'],
         gradient: 'linear-gradient(135deg, #667eea, #764ba2)',
         icon: '🤖',
-        live: '#', github: '#',
+        live: './projects/ai-chat/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'E-Commerce Platform',
@@ -16,7 +16,7 @@ const PROJECTS = [
         tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
         gradient: 'linear-gradient(135deg, #f093fb, #f5576c)',
         icon: '🛒',
-        live: '#', github: '#',
+        live: './projects/ecommerce/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'Analytics Dashboard',
@@ -24,7 +24,7 @@ const PROJECTS = [
         tags: ['React', 'D3.js', 'Node.js', 'MySQL'],
         gradient: 'linear-gradient(135deg, #4facfe, #00f2fe)',
         icon: '📊',
-        live: '#', github: '#',
+        live: './projects/analytics/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'Sentiment Analyzer',
@@ -32,7 +32,7 @@ const PROJECTS = [
         tags: ['Python', 'Scikit-learn', 'Flask', 'NLP'],
         gradient: 'linear-gradient(135deg, #a18cd1, #fbc2eb)',
         icon: '💭',
-        live: '#', github: '#',
+        live: './projects/sentiment/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'Task Management App',
@@ -40,7 +40,7 @@ const PROJECTS = [
         tags: ['React', 'Express', 'MongoDB', 'Socket.io'],
         gradient: 'linear-gradient(135deg, #43e97b, #38f9d7)',
         icon: '📋',
-        live: '#', github: '#',
+        live: './projects/taskmanager/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'Smart IoT Dashboard',
@@ -48,7 +48,7 @@ const PROJECTS = [
         tags: ['Python', 'TensorFlow', 'React', 'MQTT'],
         gradient: 'linear-gradient(135deg, #fa709a, #fee140)',
         icon: '🏠',
-        live: '#', github: '#',
+        live: './projects/iot-dashboard/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
 ]
 
