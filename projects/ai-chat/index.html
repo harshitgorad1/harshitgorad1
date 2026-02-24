@@ -415,6 +415,7 @@
             display: flex;
             flex-direction: column;
             min-width: 0;
+            min-height: 0;
         }
 
         .chat-header {
@@ -989,6 +990,8 @@
             flex: 1;
             overflow: hidden;
             flex-direction: column;
+            min-height: 0;
+            min-width: 0;
         }
 
         .tab-panel.active {
@@ -1305,7 +1308,8 @@
                 <div style="padding:24px;overflow-y:auto;flex:1;">
                     <h2 style="font-size:1.3rem;font-weight:800;">API <span class="grad">Documentation</span></h2>
                     <p style="font-size:.78rem;color:var(--mut);margin-bottom:24px;">RESTful + WebSocket · Base URL:
-                        <code style="color:var(--cyan);font-family:var(--mono);">https://api.neurochat.ai/v1</code></p>
+                        <code style="color:var(--cyan);font-family:var(--mono);">https://api.neurochat.ai/v1</code>
+                    </p>
                     <div class="api-group">
                         <div class="api-group-title">🔐 Authentication</div>
                         <div class="api-route"><span class="api-method method-post">POST</span><span
@@ -1573,7 +1577,7 @@
 
         // ── SERVICES ──
         const SERVICES = [
-            { name: 'API Gateway', color: var => '#4facfe', status: 'Online', ok: true },
+            { name: 'API Gateway', color: '#4facfe', status: 'Online', ok: true },
             { name: 'AI Service (Python)', color: '#a855f7', status: 'Online', ok: true },
             { name: 'Chat Service', color: '#4facfe', status: 'Online', ok: true },
             { name: 'MongoDB', color: '#43e97b', status: 'Online', ok: true },
