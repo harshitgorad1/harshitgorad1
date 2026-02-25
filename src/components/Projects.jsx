@@ -8,7 +8,7 @@ const PROJECTS = [
         tags: ['React', 'Python', 'TensorFlow', 'Flask'],
         gradient: 'linear-gradient(135deg, #667eea, #764ba2)',
         icon: '🤖',
-        live: './projects/ai-chat/index.html', github: 'https://github.com/harshitgorad1/harshitgorad1',
+        live: 'http://localhost:3000', github: 'https://github.com/harshitgorad1/harshitgorad1',
     },
     {
         title: 'E-Commerce Platform',
