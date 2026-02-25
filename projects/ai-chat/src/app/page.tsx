@@ -502,144 +502,144 @@ export default function App() {
               <div className="bar-chart-row">
                 {[1200, 1850, 1600, 2300, 2100, 980, 760].map((v, i) => (
                   <div key={i} className="bar-col">
-                    <div className="bar" style={{ height: \`\${(v / 2300) * 90}px\` }}></div>
+                    <div className="bar" style={{ height: `${(v / 2300) * 90}px` }}></div>
                     <div className="bar-lbl">{["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][i]}</div>
                   </div>
                 ))}
-            </div>
-          </div>
-          <div className="chart-placeholder">
-            <div style={{ fontSize: ".85rem", fontWeight: 700, marginBottom: 12 }}>Sentiment Distribution</div>
-            <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ height: 12, background: "var(--grn)", borderRadius: 3, width: 78 }}></div>
-                <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Positive 78%</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ height: 12, background: "var(--yel)", borderRadius: 3, width: 16 }}></div>
-                <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Neutral 16%</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ height: 12, background: "var(--red)", borderRadius: 3, width: 6 }}></div>
-                <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Negative 6%</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ARCHITECTURE TAB */}
-      <div className={`tab-panel ${activeTab === "arch" ? "active" : ""}`}>
-        <div style={{ padding: 24, overflowY: "auto", flex: 1 }}>
-          <h2 style={{ fontSize: "1.3rem", fontWeight: 800 }}>System <span className="grad">Architecture</span></h2>
-          <p style={{ fontSize: ".78rem", color: "var(--mut)", marginBottom: 24 }}>Microservice production architecture — horizontal scaling ready</p>
-          <div className="arch-diagram">
-            <div className="arch-row">
-              <div className="arch-box" style={{ borderColor: "var(--blue)", color: "var(--blue)", background: "rgba(79,172,254,.07)" }}>🌐 Client<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>React · WebSocket · Axios</span></div>
-            </div>
-            <div className="arch-connector"></div>
-            <div className="arch-row">
-              <div className="arch-box" style={{ borderColor: "var(--cyan)", color: "var(--cyan)", background: "rgba(0,242,254,.07)" }}>🔀 API Gateway<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · Express · Rate Limit</span></div>
-            </div>
-            <div className="arch-connector"></div>
-            <div className="arch-row arch-split">
-              <div className="arch-box" style={{ borderColor: "var(--grn)", color: "var(--grn)", background: "rgba(67,233,123,.07)" }}>🔐 Auth<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>JWT · bcrypt</span></div>
-              <div className="arch-box" style={{ borderColor: "var(--blue)", color: "var(--blue)", background: "rgba(79,172,254,.07)" }}>💬 Chat<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · WS</span></div>
-              <div className="arch-box" style={{ borderColor: "var(--pur)", color: "var(--pur)", background: "rgba(168,85,247,.07)" }}>🤖 AI Service<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Python · FastAPI</span></div>
-              <div className="arch-box" style={{ borderColor: "var(--yel)", color: "var(--yel)", background: "rgba(251,191,36,.07)" }}>📊 Analytics<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · Kafka</span></div>
-            </div>
-            <div className="arch-connector"></div>
-            <div className="arch-row arch-split">
-              <div className="arch-box" style={{ borderColor: "#f093fb", color: "#f093fb", background: "rgba(240,147,251,.07)" }}>🍃 MongoDB<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Replica Set</span></div>
-              <div className="arch-box" style={{ borderColor: "var(--red)", color: "var(--red)", background: "rgba(245,87,108,.07)" }}>⚡ Redis<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Session · Cache</span></div>
-              <div className="arch-box" style={{ borderColor: "var(--grn)", color: "var(--grn)", background: "rgba(67,233,123,.07)" }}>🐳 Docker<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Load Balancer</span></div>
-            </div>
-          </div>
-
-          <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-            <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
-              <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--blue)", marginBottom: 10 }}>📦 MongoDB Schema</div>
-              <div style={{ fontSize: ".68rem", fontFamily: "var(--mono)", color: "var(--mut)", lineHeight: 1.9 }}>
-                Users: _id · email · role · plan<br />
-                Conversations: _id · userId · title<br />
-                Messages: _id · convId · sender<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;· content · sentiment · tokens<br />
-                UsageLogs: userId · tokens · timestamp
-              </div>
-            </div>
-            <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
-              <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--red)", marginBottom: 10 }}>⚡ Redis Keys</div>
-              <div style={{ fontSize: ".68rem", fontFamily: "var(--mono)", color: "var(--mut)", lineHeight: 1.9 }}>
-                session:{"{userId}"} → context<br />
-                ratelimit:{"{userId}"} → counter<br />
-                analytics:summary → cache<br />
-                embed:{"{msgId}"} → vector<br />
-                TTL: 3600s (sessions)
-              </div>
-            </div>
-            <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
-              <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--pur)", marginBottom: 10 }}>🔀 Scaling Strategy</div>
-              <div style={{ fontSize: ".68rem", color: "var(--mut)", lineHeight: 1.9 }}>
-                • Docker containers per service<br />
-                • NGINX Load Balancer<br />
-                • AI Service isolated cluster<br />
-                • MongoDB replica set + read replicas<br />
-                • Redis cluster for session sharding
-              </div>
-            </div>
-            <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
-              <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--grn)", marginBottom: 10 }}>🚀 Deployment</div>
-              <div style={{ fontSize: ".68rem", color: "var(--mut)", lineHeight: 1.9 }}>
-                Frontend → Vercel / Cloudflare<br />
-                Backend → AWS EC2<br />
-                DB → MongoDB Atlas<br />
-                Cache → Redis Cloud<br />
-                CI/CD → GitHub Actions
+            <div className="chart-placeholder">
+              <div style={{ fontSize: ".85rem", fontWeight: 700, marginBottom: 12 }}>Sentiment Distribution</div>
+              <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ height: 12, background: "var(--grn)", borderRadius: 3, width: 78 }}></div>
+                  <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Positive 78%</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ height: 12, background: "var(--yel)", borderRadius: 3, width: 16 }}></div>
+                  <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Neutral 16%</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ height: 12, background: "var(--red)", borderRadius: 3, width: 6 }}></div>
+                  <span style={{ fontSize: ".75rem", color: "var(--mut)" }}>Negative 6%</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* API DOCS TAB */}
-      <div className={`tab-panel ${activeTab === "api" ? "active" : ""}`}>
-        <div style={{ padding: 24, overflowY: "auto", flex: 1 }}>
-          <h2 style={{ fontSize: "1.3rem", fontWeight: 800 }}>API <span className="grad">Documentation</span></h2>
-          <p style={{ fontSize: ".78rem", color: "var(--mut)", marginBottom: 24 }}>RESTful + WebSocket · Base URL: <code style={{ color: "var(--cyan)", fontFamily: "var(--mono)" }}>https://api.neurochat.ai/v1</code></p>
+        {/* ARCHITECTURE TAB */}
+        <div className={`tab-panel ${activeTab === "arch" ? "active" : ""}`}>
+          <div style={{ padding: 24, overflowY: "auto", flex: 1 }}>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 800 }}>System <span className="grad">Architecture</span></h2>
+            <p style={{ fontSize: ".78rem", color: "var(--mut)", marginBottom: 24 }}>Microservice production architecture — horizontal scaling ready</p>
+            <div className="arch-diagram">
+              <div className="arch-row">
+                <div className="arch-box" style={{ borderColor: "var(--blue)", color: "var(--blue)", background: "rgba(79,172,254,.07)" }}>🌐 Client<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>React · WebSocket · Axios</span></div>
+              </div>
+              <div className="arch-connector"></div>
+              <div className="arch-row">
+                <div className="arch-box" style={{ borderColor: "var(--cyan)", color: "var(--cyan)", background: "rgba(0,242,254,.07)" }}>🔀 API Gateway<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · Express · Rate Limit</span></div>
+              </div>
+              <div className="arch-connector"></div>
+              <div className="arch-row arch-split">
+                <div className="arch-box" style={{ borderColor: "var(--grn)", color: "var(--grn)", background: "rgba(67,233,123,.07)" }}>🔐 Auth<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>JWT · bcrypt</span></div>
+                <div className="arch-box" style={{ borderColor: "var(--blue)", color: "var(--blue)", background: "rgba(79,172,254,.07)" }}>💬 Chat<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · WS</span></div>
+                <div className="arch-box" style={{ borderColor: "var(--pur)", color: "var(--pur)", background: "rgba(168,85,247,.07)" }}>🤖 AI Service<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Python · FastAPI</span></div>
+                <div className="arch-box" style={{ borderColor: "var(--yel)", color: "var(--yel)", background: "rgba(251,191,36,.07)" }}>📊 Analytics<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Node.js · Kafka</span></div>
+              </div>
+              <div className="arch-connector"></div>
+              <div className="arch-row arch-split">
+                <div className="arch-box" style={{ borderColor: "#f093fb", color: "#f093fb", background: "rgba(240,147,251,.07)" }}>🍃 MongoDB<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Replica Set</span></div>
+                <div className="arch-box" style={{ borderColor: "var(--red)", color: "var(--red)", background: "rgba(245,87,108,.07)" }}>⚡ Redis<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Session · Cache</span></div>
+                <div className="arch-box" style={{ borderColor: "var(--grn)", color: "var(--grn)", background: "rgba(67,233,123,.07)" }}>🐳 Docker<br /><span style={{ fontSize: ".6rem", color: "var(--mut)" }}>Load Balancer</span></div>
+              </div>
+            </div>
 
-          <div className="api-group">
-            <div className="api-group-title">🔐 Authentication</div>
-            <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/register</span><div className="api-desc">Register new user · Returns JWT access + refresh tokens</div></div>
-            <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/login</span><div className="api-desc">Authenticate user · Returns JWT pair · Sets Redis session</div></div>
-            <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/refresh</span><div className="api-desc">Refresh access token · Validates refresh token from Redis</div></div>
-          </div>
-
-          <div className="api-group">
-            <div className="api-group-title">💬 Chat</div>
-            <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/chat/message</span><div className="api-desc">Send message · AI processes via Python service · Returns response + sentiment + tokens</div></div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/chat/conversations</span><div className="api-desc">List all conversations for authenticated user</div></div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/chat/messages/:convId</span><div className="api-desc">Get messages for a conversation · Paginated · Sorted by createdAt</div></div>
-            <div className="api-route"><span className="api-method method-delete">DEL</span><span className="api-path">/chat/:convId</span><div className="api-desc">Delete conversation + all messages · Clears Redis context</div></div>
-            <div className="api-route"><span className="api-method ws-badge">WS</span><span className="api-path">ws://api/chat/stream</span><div className="api-desc">WebSocket streaming · Token-by-token response · Real-time delivery</div></div>
-          </div>
-
-          <div className="api-group">
-            <div className="api-group-title">📊 Analytics</div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/user</span><div className="api-desc">User's personal usage stats · Token consumption · Message history</div></div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/admin</span><div className="api-desc">Platform-wide metrics · Admin only · Cached in Redis</div></div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/sentiment</span><div className="api-desc">Sentiment trend analysis · NLP derived · Last 30 days</div></div>
-          </div>
-
-          <div className="api-group">
-            <div className="api-group-title">⚙️ Admin</div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/admin/users</span><div className="api-desc">List all users · Paginated · Filter by plan/role</div></div>
-            <div className="api-route"><span className="api-method method-patch">PATCH</span><span className="api-path">/admin/subscription</span><div className="api-desc">Upgrade/downgrade user subscription plan</div></div>
-            <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/admin/system-metrics</span><div className="api-desc">CPU · Memory · Uptime · Error rates · Prometheus-compatible</div></div>
+            <div style={{ marginTop: 28, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
+                <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--blue)", marginBottom: 10 }}>📦 MongoDB Schema</div>
+                <div style={{ fontSize: ".68rem", fontFamily: "var(--mono)", color: "var(--mut)", lineHeight: 1.9 }}>
+                  Users: _id · email · role · plan<br />
+                  Conversations: _id · userId · title<br />
+                  Messages: _id · convId · sender<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;· content · sentiment · tokens<br />
+                  UsageLogs: userId · tokens · timestamp
+                </div>
+              </div>
+              <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
+                <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--red)", marginBottom: 10 }}>⚡ Redis Keys</div>
+                <div style={{ fontSize: ".68rem", fontFamily: "var(--mono)", color: "var(--mut)", lineHeight: 1.9 }}>
+                  session:{"{userId}"} → context<br />
+                  ratelimit:{"{userId}"} → counter<br />
+                  analytics:summary → cache<br />
+                  embed:{"{msgId}"} → vector<br />
+                  TTL: 3600s (sessions)
+                </div>
+              </div>
+              <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
+                <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--pur)", marginBottom: 10 }}>🔀 Scaling Strategy</div>
+                <div style={{ fontSize: ".68rem", color: "var(--mut)", lineHeight: 1.9 }}>
+                  • Docker containers per service<br />
+                  • NGINX Load Balancer<br />
+                  • AI Service isolated cluster<br />
+                  • MongoDB replica set + read replicas<br />
+                  • Redis cluster for session sharding
+                </div>
+              </div>
+              <div style={{ background: "var(--s1)", border: "1px solid var(--bd)", borderRadius: 12, padding: 16 }}>
+                <div style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--grn)", marginBottom: 10 }}>🚀 Deployment</div>
+                <div style={{ fontSize: ".68rem", color: "var(--mut)", lineHeight: 1.9 }}>
+                  Frontend → Vercel / Cloudflare<br />
+                  Backend → AWS EC2<br />
+                  DB → MongoDB Atlas<br />
+                  Cache → Redis Cloud<br />
+                  CI/CD → GitHub Actions
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+        {/* API DOCS TAB */}
+        <div className={`tab-panel ${activeTab === "api" ? "active" : ""}`}>
+          <div style={{ padding: 24, overflowY: "auto", flex: 1 }}>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 800 }}>API <span className="grad">Documentation</span></h2>
+            <p style={{ fontSize: ".78rem", color: "var(--mut)", marginBottom: 24 }}>RESTful + WebSocket · Base URL: <code style={{ color: "var(--cyan)", fontFamily: "var(--mono)" }}>https://api.neurochat.ai/v1</code></p>
+
+            <div className="api-group">
+              <div className="api-group-title">🔐 Authentication</div>
+              <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/register</span><div className="api-desc">Register new user · Returns JWT access + refresh tokens</div></div>
+              <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/login</span><div className="api-desc">Authenticate user · Returns JWT pair · Sets Redis session</div></div>
+              <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/auth/refresh</span><div className="api-desc">Refresh access token · Validates refresh token from Redis</div></div>
+            </div>
+
+            <div className="api-group">
+              <div className="api-group-title">💬 Chat</div>
+              <div className="api-route"><span className="api-method method-post">POST</span><span className="api-path">/chat/message</span><div className="api-desc">Send message · AI processes via Python service · Returns response + sentiment + tokens</div></div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/chat/conversations</span><div className="api-desc">List all conversations for authenticated user</div></div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/chat/messages/:convId</span><div className="api-desc">Get messages for a conversation · Paginated · Sorted by createdAt</div></div>
+              <div className="api-route"><span className="api-method method-delete">DEL</span><span className="api-path">/chat/:convId</span><div className="api-desc">Delete conversation + all messages · Clears Redis context</div></div>
+              <div className="api-route"><span className="api-method ws-badge">WS</span><span className="api-path">ws://api/chat/stream</span><div className="api-desc">WebSocket streaming · Token-by-token response · Real-time delivery</div></div>
+            </div>
+
+            <div className="api-group">
+              <div className="api-group-title">📊 Analytics</div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/user</span><div className="api-desc">User's personal usage stats · Token consumption · Message history</div></div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/admin</span><div className="api-desc">Platform-wide metrics · Admin only · Cached in Redis</div></div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/analytics/sentiment</span><div className="api-desc">Sentiment trend analysis · NLP derived · Last 30 days</div></div>
+            </div>
+
+            <div className="api-group">
+              <div className="api-group-title">⚙️ Admin</div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/admin/users</span><div className="api-desc">List all users · Paginated · Filter by plan/role</div></div>
+              <div className="api-route"><span className="api-method method-patch">PATCH</span><span className="api-path">/admin/subscription</span><div className="api-desc">Upgrade/downgrade user subscription plan</div></div>
+              <div className="api-route"><span className="api-method method-get">GET</span><span className="api-path">/admin/system-metrics</span><div className="api-desc">CPU · Memory · Uptime · Error rates · Prometheus-compatible</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div >
   );
 }
